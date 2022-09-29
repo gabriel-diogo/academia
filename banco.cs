@@ -16,9 +16,18 @@ namespace academia
     {
         public static SQLiteConnection cx;
 
+       
+
+
+
+
         public static SQLiteConnection cxbanco()
         {
-            cx = new SQLiteConnection("DATA Source =C:\\Users\\biel\\Desktop\\c#modografico\\apk academia\\academia\\db\\ak.db ");
+           // cx = new SQLiteConnection("DATA Source =C:\\Users\\biel\\Desktop\\c#modografico\\apk academia\\academia\\db\\ak.db ");
+
+             cx = new SQLiteConnection("DATA SOURCE =" + global.caminhobanco + global.nomebanco);
+
+
             cx.Open();
 
             return cx;
@@ -257,9 +266,90 @@ namespace academia
                 throw es;
             }
         }
-        
 
 
+
+
+        //generica
+
+
+        //(select)
+        public static DataTable dql(string q)
+        {
+            SQLiteDataAdapter da = null;
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (var cmd = cxbanco().CreateCommand())
+                {
+
+                    cmd.CommandText = q;
+
+                    da = new SQLiteDataAdapter(cmd.CommandText, cxbanco());
+
+                    da.Fill(dt);
+
+                    cxbanco().Close();
+
+                    return dt;
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
+
+        //generica
+
+        //update  insert delete 
+
+        public static void dml(string q, string msgok = null, string msgero = null)
+        {
+            SQLiteDataAdapter da = null;
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+               
+
+                   var vcon=cxbanco();
+
+                    var cmd =vcon.CreateCommand();
+                cmd.CommandText= q;
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                cmd.ExecuteNonQuery();
+                vcon.Clone();
+                if(msgok != null) {
+
+                    MessageBox.Show(msgok);
+
+                }
+
+
+
+
+
+                
+
+            }
+            catch (Exception ee)
+            {
+
+                if (msgero != null) {
+
+                    MessageBox.Show(msgero + ee.Message);
+                }
+                throw ee;
+            }
+
+        }
 
     }
 }

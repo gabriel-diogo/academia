@@ -78,6 +78,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="F_horariocs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_horariocs.Designer.cs">
+      <DependentUpon>F_horariocs.cs</DependentUpon>
+    </Compile>
     <Compile Include="gestaouser3.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,19 +98,37 @@
       <DependentUpon>newuser.cs</DependentUpon>
     </Compile>
     <Compile Include="novouser.cs" />
+    <Compile Include="profesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="profesor.Designer.cs">
+      <DependentUpon>profesor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="turma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="turma.Designer.cs">
+      <DependentUpon>turma.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="F_horariocs.resx">
+      <DependentUpon>F_horariocs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gestaouser3.resx">
       <DependentUpon>gestaouser3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="newuser.resx">
       <DependentUpon>newuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="profesor.resx">
+      <DependentUpon>profesor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -116,6 +140,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="turma.resx">
+      <DependentUpon>turma.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -21,6 +21,26 @@ namespace academia
             l.ShowDialog();
         }
 
+
+        private void abriform(int nivel,Form f)
+        {
+            if (global.logado)
+            {
+                if (global.nivel >= nivel)
+                {
+                    f.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("nao permitido");
+                }
+            }
+            else
+            {
+                MessageBox.Show("faca login");
+            }
+        }
+
         private void logarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
            login f=new login(this);
@@ -77,6 +97,26 @@ namespace academia
             {
                 MessageBox.Show("faca login");
             }
+        }
+
+        private void horarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            F_horariocs f =new F_horariocs();
+
+            abriform(2, f);
+        }
+
+        private void profesoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            profesor p = new profesor();
+            abriform(2, p);
+        }
+
+        private void turmaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            turma t=new turma();
+
+            abriform(2, t);
         }
     }
 }

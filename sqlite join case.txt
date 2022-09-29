@@ -1,0 +1,33 @@
+SELECT
+
+tbt.n_idturma as 'ID',
+tbt.t_descturma as 'desc',
+tbt.n_maxaluno as 'max',
+
+tbh.t_deschora as 'hora',
+
+tbp.t_nomeprooff as 'prof',
+
+CASE
+WHEN tbt.t_status ='A' THEN 'ativo'
+
+ WHEN tbt.t_status ='p' THEN 'para'
+ 
+WHEN tbt.t_status ='c' THEN 'cancela'
+
+END as 'status',
+
+
+
+
+
+*FROM
+
+tb_turma as tbt
+
+inner join 
+
+tb_horario as tbh on tbh.n_idhora =tbt.n_hora,
+
+tb_proff as tbp on tbp.n_idproff=tbt.n_idproff
+ 
