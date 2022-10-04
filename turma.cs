@@ -4,10 +4,15 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Entity.Infrastructure;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using iTextSharp;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace academia
 {
@@ -161,6 +166,25 @@ namespace academia
                 nd_max.Value = dt.Rows[0].Field<Int64>("n_maxaluno");
 
                 cb_hora.SelectedValue = dt.Rows[0].Field<Int64>("n_hora");
+
+
+                //calculo vagas
+
+                string query = string.Format(@"SELECT count(n_idalino) as 'cont'
+                        
+                    FROM tb_aluno WHERE t_status= 'A' and n_idturma={0} ",idcel);
+
+                dt=banco.dql(query);
+
+                int vagas=Int32.Parse(Math.Round(nd_max.Value,0).ToString());
+                vagas -= Int32.Parse(dt.Rows[0].Field<Int64>("cont").ToString());
+
+                tb_vagas.Text = vagas.ToString();
+
+
+
+
+
 
             }
 
@@ -453,11 +477,203 @@ namespace academia
         {
             if (modo == 0) { modo = 1; }
         }
-    
-    
-    
-    
-    
-    
+
+
+
+        public void imprimir()
+        {
+            try
+            {
+
+
+
+
+
+                //arquivotxt
+
+                string nomearq = global.caminho + @"\ turma.pdf";
+
+                FileStream arquipdf = new FileStream(nomearq, FileMode.Create);
+
+                Document doc = new Document(PageSize.A4);
+
+                PdfWriter rscpdf = PdfWriter.GetInstance(doc, arquipdf);
+
+                //image
+
+                iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(global.caminho + @"\img.png");
+
+                logo.ScaleToFit(140f, 120f);
+                logo.Alignment = Element.ALIGN_LEFT;
+                logo.SetAbsolutePosition(100, 700);//x -y
+
+
+
+
+
+
+                string dados = "";
+
+                Paragraph pa = new Paragraph(dados, new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 20, (int)System.Drawing.FontStyle.Bold));
+
+                pa.Alignment = Element.ALIGN_CENTER;
+                pa.Add("gddddddd \n");
+
+                pa.Font = new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 15, (int)System.Drawing.FontStyle.Italic);
+
+
+
+                pa.Alignment = Element.ALIGN_CENTER;
+
+                pa.Add("fffffffffff \n");
+
+
+                pa.Font = new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 15, (int)System.Drawing.FontStyle.Italic);
+
+                pa.Alignment = Element.ALIGN_CENTER;
+
+                pa.Add("llllllllllll \n\n\n");
+
+
+                ///tabelas
+                ///
+
+                PdfPTable tab = new PdfPTable(3);
+
+                tab.DefaultCell.FixedHeight = 20;
+
+                PdfPCell cel = new PdfPCell();
+
+                cel.Colspan = 3;
+
+                cel.AddElement(logo);
+
+                tab.AddCell(cel);
+
+
+                //manual
+                tab.AddCell("produto");
+                tab.AddCell("codigo");
+                tab.AddCell("preco");
+                tab.AddCell("tv"); tab.AddCell("01"); tab.AddCell("50.40");
+
+                PdfPCell cel2 = new PdfPCell(new Phrase("tabela preco"));
+
+                cel2.Rotation = 0;
+                cel2.Colspan = 3;
+                cel2.FixedHeight = 20;
+                cel2.HorizontalAlignment = Element.ALIGN_CENTER;
+                cel2.VerticalAlignment = Element.ALIGN_MIDDLE;
+                tab.AddCell(cel2);
+
+                doc.Open();
+
+
+                //doc.Add(logo);
+                doc.Add(pa);
+                doc.Add(tab);
+
+                doc.Close();
+
+            }
+            catch (Exception es)
+            {
+
+            }
+        }
+
+        private void b_imp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+           
+
+            string nomearq = global.caminho + @"\ turma2.pdf";
+
+            FileStream arquipdf = new FileStream(nomearq, FileMode.Create);
+
+            Document doc = new Document(PageSize.A4);
+
+            PdfWriter rscpdf = PdfWriter.GetInstance(doc, arquipdf);
+
+            //image
+
+            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(global.caminho + @"\img.png");
+
+            logo.ScaleToFit(40f, 50f);
+            logo.Alignment = Element.ALIGN_LEFT;
+            logo.SetAbsolutePosition(100, 750);//x -y
+
+
+
+            string dados = "";
+
+            Paragraph pa = new Paragraph(dados, new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 20, (int)System.Drawing.FontStyle.Bold));
+
+            pa.Alignment = Element.ALIGN_CENTER;
+            pa.Add("relatorio tuma \n\n");
+
+            Paragraph pa2 = new Paragraph(dados, new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 14, (int)System.Drawing.FontStyle.Italic));
+
+            pa2.Alignment = Element.ALIGN_CENTER;
+            pa2.Add("gd\n");
+
+            PdfPTable tab = new PdfPTable(3);
+
+            tab.DefaultCell.FixedHeight = 20;
+
+            string vquery = @"
+            
+                SELECT 
+                    tbt.n_idturma as 'id',
+
+                    tbt.t_descturma as 'turma',
+                        tbh.t_deschora as 'hora'
+
+
+                        FROM
+
+                 tb_turma as tbt
+
+                inner join 
+
+            tb_horario as tbh on tbh.n_idhora =tbt.n_hora
+                
+
+                ";
+
+            tab.AddCell("id");
+
+            tab.AddCell("turma");
+
+            tab.AddCell("hora");
+
+            DataTable dtturma=banco.dql(vquery);
+            for(int i = 0; i < dtturma.Rows.Count; i++)
+            {
+                tab.AddCell(dtturma.Rows[i].Field<Int64>("id").ToString());
+                tab.AddCell(dtturma.Rows[i].Field<string>("turma"));
+                tab.AddCell(dtturma.Rows[i].Field<string>("hora"));
+
+            }
+
+            doc.Open();
+            doc.Add(logo);
+            doc.Add(pa);
+            doc.Add(tab);
+            doc.Add(pa2);
+            doc.Close();
+
+            DialogResult res=MessageBox.Show("abrir","pdf",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+
+            if (res == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(global.caminho + @"\ turma2.pdf");
+            }
+            }
+            catch (Exception) { }
+
+        }
     }
 }

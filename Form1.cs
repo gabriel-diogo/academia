@@ -118,5 +118,11 @@ namespace academia
 
             abriform(2, t);
         }
+
+        private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            aluno a=new aluno();
+            abriform(1, a);
+        }
     }
 }
