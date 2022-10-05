@@ -41,9 +41,9 @@
             this.btn_turma = new System.Windows.Forms.Button();
             this.btn_plano = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -142,6 +142,7 @@
             this.btn_turma.TabIndex = 14;
             this.btn_turma.Text = "...";
             this.btn_turma.UseVisualStyleBackColor = true;
+            this.btn_turma.Click += new System.EventHandler(this.btn_turma_Click);
             // 
             // btn_plano
             // 
@@ -163,15 +164,16 @@
             this.panel1.Size = new System.Drawing.Size(559, 49);
             this.panel1.TabIndex = 16;
             // 
-            // button1
+            // button3
             // 
-            this.button1.Location = new System.Drawing.Point(15, 14);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "novo";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button3.Enabled = false;
+            this.button3.Location = new System.Drawing.Point(448, 14);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "cancel";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -184,16 +186,15 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // button1
             // 
-            this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(448, 14);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "cancel";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button1.Location = new System.Drawing.Point(15, 14);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "novo";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // aluno
             // 
@@ -225,7 +226,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox tb_nome;
-        private System.Windows.Forms.TextBox tb_turma;
         private System.Windows.Forms.TextBox tb_plano;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -240,5 +240,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.TextBox tb_turma;
     }
 }

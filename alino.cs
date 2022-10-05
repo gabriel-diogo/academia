@@ -93,5 +93,11 @@ namespace academia
             button3.Enabled = false;
             button1.Enabled = true;
         }
+
+        private void btn_turma_Click(object sender, EventArgs e)
+        {
+            selecionaturma s=new selecionaturma(this);
+            s.ShowDialog();
+        }
     }
 }
