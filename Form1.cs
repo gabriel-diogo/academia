@@ -124,5 +124,12 @@ namespace academia
             aluno a=new aluno();
             abriform(1, a);
         }
+
+        private void gestaoDeAlunoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            g_aluno g=new g_aluno();
+
+            g.ShowDialog();
+        }
     }
 }

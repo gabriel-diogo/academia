@@ -118,6 +118,12 @@
       <DependentUpon>gestaouser3.cs</DependentUpon>
     </Compile>
     <Compile Include="global.cs" />
+    <Compile Include="g_aluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="g_aluno.Designer.cs">
+      <DependentUpon>g_aluno.cs</DependentUpon>
+    </Compile>
     <Compile Include="newuser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gestaouser3.resx">
       <DependentUpon>gestaouser3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="g_aluno.resx">
+      <DependentUpon>g_aluno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="newuser.resx">
       <DependentUpon>newuser.cs</DependentUpon>

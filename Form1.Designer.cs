@@ -48,6 +48,7 @@
             this.logarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.logooffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestaoDeAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -168,7 +169,8 @@
             // 
             this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.novoUserToolStripMenuItem,
-            this.gestaoDeUserToolStripMenuItem});
+            this.gestaoDeUserToolStripMenuItem,
+            this.gestaoDeAlunoToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.usuariosToolStripMenuItem.Text = "usuarios";
@@ -214,16 +216,23 @@
             // logarToolStripMenuItem1
             // 
             this.logarToolStripMenuItem1.Name = "logarToolStripMenuItem1";
-            this.logarToolStripMenuItem1.Size = new System.Drawing.Size(106, 22);
+            this.logarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.logarToolStripMenuItem1.Text = "logon";
             this.logarToolStripMenuItem1.Click += new System.EventHandler(this.logarToolStripMenuItem1_Click);
             // 
             // logooffToolStripMenuItem
             // 
             this.logooffToolStripMenuItem.Name = "logooffToolStripMenuItem";
-            this.logooffToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.logooffToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.logooffToolStripMenuItem.Text = "logoff";
             this.logooffToolStripMenuItem.Click += new System.EventHandler(this.logooffToolStripMenuItem_Click);
+            // 
+            // gestaoDeAlunoToolStripMenuItem
+            // 
+            this.gestaoDeAlunoToolStripMenuItem.Name = "gestaoDeAlunoToolStripMenuItem";
+            this.gestaoDeAlunoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestaoDeAlunoToolStripMenuItem.Text = "gestao de aluno";
+            this.gestaoDeAlunoToolStripMenuItem.Click += new System.EventHandler(this.gestaoDeAlunoToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -268,6 +277,7 @@
         private System.Windows.Forms.ToolStripMenuItem horarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem profesoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem turmaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestaoDeAlunoToolStripMenuItem;
     }
 }
 

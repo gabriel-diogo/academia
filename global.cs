@@ -27,7 +27,7 @@ namespace academia
 
         public static string caminhobanco=caminho+@"\db\";
 
-
+        public static string caminhofoto = caminho + @"\foto\";
         public static void atualizar()
         {
 

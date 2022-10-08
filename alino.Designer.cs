@@ -41,10 +41,14 @@
             this.btn_turma = new System.Windows.Forms.Button();
             this.btn_plano = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_foto = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tb_nome
@@ -58,7 +62,7 @@
             // 
             // tb_turma
             // 
-            this.tb_turma.Location = new System.Drawing.Point(313, 177);
+            this.tb_turma.Location = new System.Drawing.Point(328, 112);
             this.tb_turma.Name = "tb_turma";
             this.tb_turma.ReadOnly = true;
             this.tb_turma.Size = new System.Drawing.Size(176, 20);
@@ -85,7 +89,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(310, 161);
+            this.label2.Location = new System.Drawing.Point(325, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 13);
             this.label2.TabIndex = 5;
@@ -136,7 +140,7 @@
             // 
             // btn_turma
             // 
-            this.btn_turma.Location = new System.Drawing.Point(495, 174);
+            this.btn_turma.Location = new System.Drawing.Point(510, 109);
             this.btn_turma.Name = "btn_turma";
             this.btn_turma.Size = new System.Drawing.Size(28, 23);
             this.btn_turma.TabIndex = 14;
@@ -155,6 +159,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btn_foto);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
@@ -164,10 +169,20 @@
             this.panel1.Size = new System.Drawing.Size(559, 49);
             this.panel1.TabIndex = 16;
             // 
+            // btn_foto
+            // 
+            this.btn_foto.Location = new System.Drawing.Point(425, 14);
+            this.btn_foto.Name = "btn_foto";
+            this.btn_foto.Size = new System.Drawing.Size(99, 23);
+            this.btn_foto.TabIndex = 18;
+            this.btn_foto.Text = "add foto";
+            this.btn_foto.UseVisualStyleBackColor = true;
+            this.btn_foto.Click += new System.EventHandler(this.btn_foto_Click);
+            // 
             // button3
             // 
             this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(448, 14);
+            this.button3.Location = new System.Drawing.Point(299, 14);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 2;
@@ -178,7 +193,7 @@
             // button2
             // 
             this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(244, 14);
+            this.button2.Location = new System.Drawing.Point(151, 14);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
@@ -196,11 +211,26 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "JPG(*.jpg)|*.jpg|PNG(*.png)|*.png";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(338, 194);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 128);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            // 
             // aluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(559, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_plano);
             this.Controls.Add(this.btn_turma);
@@ -218,6 +248,7 @@
             this.Text = "aluno";
             this.Load += new System.EventHandler(this.aluno_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,5 +272,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.TextBox tb_turma;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btn_foto;
     }
 }
